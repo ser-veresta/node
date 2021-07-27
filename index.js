@@ -1,19 +1,8 @@
-import express from "express";
+import express, { request } from "express";
 import mongoose from "mongoose";
-import { User } from "./models/users.js";
+import userRouter from "./routes/user.js";
 const app = express();
 const PORT = 5000;
-
-const users = [
-  {
-    name: "a",
-    id: 1,
-  },
-  {
-    name: "b",
-    id: 2,
-  },
-];
 
 const url = "mongodb://localhost/movieData";
 
@@ -31,21 +20,6 @@ app.get("/", (request, response) => {
   response.send("Hello, welcome to test server");
 });
 
-app.get("/users", async (request, response) => {
-  const Users = await User.find();
-  response.send(Users);
-});
-
-app.get("/:id", (request, response) => {
-  const { id } = request.params;
-  const user = users.find((ele) => ele.id === parseInt(id));
-  response.send(user);
-});
-
-app.post("/users", (request, response) => {
-  const newUser = request.body;
-  console.log(newUser);
-  response.send("done");
-});
+app.use("/users", userRouter);
 
 app.listen(PORT, () => console.log(`server running in PORT:${PORT}`));

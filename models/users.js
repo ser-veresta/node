@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  id: Number,
-});
+const userSchema = new mongoose.Schema(
+  {
+    name: String,
+    id: Number,
+  },
+  { versionKey: false }
+);
 
-export const User = mongoose.model("movie", userSchema);
+export const Users = mongoose.model("movie", userSchema);
