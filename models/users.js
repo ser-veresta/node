@@ -8,4 +8,4 @@ const userSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-export const Users = mongoose.model("movie", userSchema);
+export const Users = mongoose.model("user", userSchema);

@@ -1,10 +1,10 @@
 import express, { request } from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.js";
-const app = express();
-const PORT = 5000;
 
-const url = "mongodb://localhost/movieData";
+const app = express();
+const PORT = process.env.PORT || 5000;
+const url = "mongodb+srv://gopal:1213@cluster0.azvtw.mongodb.net/userData";
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
