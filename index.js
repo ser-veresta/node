@@ -17,7 +17,7 @@ con.on("open", () => {
 app.use(express.json());
 
 app.get("/", (request, response) => {
-  response.send(url);
+  response.send("welcome,you are at the test server the test server");
 });
 
 app.use("/users", userRouter);
