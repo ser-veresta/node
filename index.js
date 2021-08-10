@@ -4,7 +4,7 @@ import userRouter from "./routes/user.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const url = process.env.MONGODB_URI;
+const url = process.env.MONGODB_URI || "mongodb+srv://gopal:1213@cluster0.azvtw.mongodb.net/userData";
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
